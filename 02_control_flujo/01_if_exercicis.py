@@ -8,7 +8,15 @@
 # - Entre -67 dBm i menys de -50 dBm: bona
 # - Entre -75 dBm i menys de -67 dBm: feble
 # - Inferior a -75 dBm: molt feble
-
+nivellSenyal = float(input("Introdueix el nivell de senyal Wi-Fi (en dBm): "))
+if nivellSenyal >= -50:
+    print("La cobertura Wi-Fi és excel·lent.")
+elif nivellSenyal >= -67:
+    print("La cobertura Wi-Fi és bona.")
+elif nivellSenyal >= -75:
+    print("La cobertura Wi-Fi és feble.")
+else:
+    print("La cobertura Wi-Fi és molt feble.")
 
 # Exercici 2: Nivell de recepció d'una connexió de fibra òptica
 # Demana la potència òptica rebuda en dBm. Per a aquest exercici, considera
