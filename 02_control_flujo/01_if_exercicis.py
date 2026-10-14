@@ -60,6 +60,13 @@ else:
 # de comunicacions. Indica si el nivell és crític (menys del 20 %), baix
 # (del 20 % al 49 %) o suficient (50 % o més). Rebutja valors fora del rang
 # del 0 % al 100 %.
+percentatgeBateria = int(input("Introdueix el percentatge de bateria del SAI: "))
+if percentatgeBateria < 20:
+    print("El nivell de bateria és crític.")
+elif percentatgeBateria < 50:
+    print("El nivell de bateria és baix.")
+else:
+    print("El nivell de bateria és suficient.")
 
 # Exercici 6: Qualitat d'una connexió de xarxa
 # Demana la latència en mil·lisegons i el percentatge de paquets perduts.
@@ -68,6 +75,18 @@ else:
 # i la pèrdua és de l'1 % o menys; bona si és de 80 ms o menys i la pèrdua és
 # del 3 % o menys; acceptable si és de 150 ms o menys i la pèrdua és del 5 %
 # o menys; en qualsevol altre cas, deficient.
+latencia = float(input("Introdueix la latència en ms: "))
+perdua = float(input("Introdueix el percentatge de paquets perduts: "))
+if latencia < 0 or perdua < 0 or perdua > 100:
+    print("Valors invàlids. Rebutja una latència negativa o una pèrdua fora del rang del 0 % al 100 %.")
+elif latencia <= 30 and perdua <= 1:
+    print("La connexió és excel·lent.")
+elif latencia <= 80 and perdua <= 3:
+    print("La connexió és bona.")
+elif latencia <= 150 and perdua <= 5:
+    print("La connexió és acceptable.")
+else:
+    print("La connexió és deficient.")
 
 # Exercici 7: Cost mensual d'un pla de dades
 # Demana el tipus de pla (bàsic o plus) i el consum mensual en GB.
@@ -75,6 +94,24 @@ else:
 # El pla plus costa 20 € i inclou 30 GB; cada GB addicional costa 0,75 €.
 # Rebutja un consum negatiu o un tipus de pla desconegut. Calcula i mostra el
 # cost total, tenint en compte que no es cobra l'excés si no se supera el límit.
+tipusPla = input("Introdueix el tipus de pla (bàsic/plus): ").strip().lower()
+consumMensual = float(input("Introdueix el consum mensual en GB: "))
+if consumMensual < 0:
+    print("Consum negatiu. Rebutjat.")
+elif tipusPla == "bàsic":
+    if consumMensual <= 10:
+        cost = 10
+    else:
+        cost = 10 + (consumMensual - 10) * 1.50
+    print(f"El cost total del pla bàsic és de {cost:.2f} €.")
+elif tipusPla == "plus":
+    if consumMensual <= 30:
+        cost = 20
+    else:
+        cost = 20 + (consumMensual - 30) * 0.75
+    print(f"El cost total del pla plus és de {cost:.2f} €.")
+else:
+    print("Tipus de pla desconegut. Rebutjat.")
 
 # Exercici 8: Accés a un compte de client
 # Demana si el compte està actiu, si la contrasenya és correcta i si el codi
@@ -82,17 +119,53 @@ else:
 # i la contrasenya és correcta. Indica si l'accés es denega perquè el compte
 # està desactivat, perquè la contrasenya és incorrecta o perquè falla el codi;
 # si totes les comprovacions necessàries són correctes, permet l'accés.
-
+compteActiu = input("El compte està actiu? (sí/no): ").strip().lower()
+if compteActiu == "sí":
+    contrasenyaCorrecta = input("La contrasenya és correcta? (sí/no): ").strip().lower()
+    if contrasenyaCorrecta == "sí":
+        codiVerificacio = input("El codi de doble verificació és correcte? (sí/no): ").strip().lower()
+        if codiVerificacio == "sí":
+            print("Accés permès.")
+        else:
+            print("Accés denegat: el codi de doble verificació és incorrecte.")
+    else:
+        print("Accés denegat: la contrasenya és incorrecta.")
+else:
+    print("Accés denegat: el compte està desactivat.")
 # Exercici 9: Diagnòstic d'un router
 # Demana si el router està encès, si l'indicador LOS del terminal òptic està
 # encès i si l'indicador d'Internet del router està encès. Indica primer si
 # cal encendre el router; si ja està encès, comprova si cal revisar el cable
 # de fibra (LOS encès), si cal contactar amb el proveïdor (Internet apagat) o
 # si la connexió funciona correctament. Considera els casos en aquest ordre.
-
+routerEncès = input("El router està encès? (sí/no): ").strip().lower()
+if routerEncès == "no":
+    print("Cal encendre el router.")
+else:
+    losEncès = input("L'indicador LOS del terminal òptic està encès? (sí/no): ").strip().lower()
+    internetEncès = input("L'indicador d'Internet del router està encès? (sí/no): ").strip().lower()
+    if losEncès == "sí":
+        print("Cal revisar el cable de fibra.")
+    elif internetEncès == "no":
+        print("Cal contactar amb el proveïdor.")
+    else:
+        print("La connexió funciona correctament.")
 # Exercici 10: Prioritat d'una incidència de xarxa
 # Demana si la incidència afecta un servei crític, el nombre d'usuaris afectats
 # i si hi ha una alternativa de connexió disponible. Rebutja un nombre negatiu
 # d'usuaris. Assigna prioritat crítica si afecta un servei crític i no hi ha
 # alternativa, o si afecta almenys 50 usuaris i no hi ha alternativa; alta si
 # afecta almenys 10 usuaris o un servei crític; en qualsevol altre cas, baixa.
+serveiCritic = input("La incidència afecta un servei crític? (sí/no): ").strip().lower()
+usuarisAfectats = int(input("Nombre d'usuaris afectats: "))
+alternativaDisponible = input("Hi ha una alternativa de connexió disponible? (sí/no): ").strip().lower()
+if usuarisAfectats < 0:
+    print("Error: el nombre d'usuaris afectats no pot ser negatiu.")
+elif serveiCritic == "sí" and alternativaDisponible == "no":
+    print("Prioritat crítica.")
+elif usuarisAfectats >= 50 and alternativaDisponible == "no":
+    print("Prioritat crítica.")
+elif usuarisAfectats >= 10 or serveiCritic == "sí":
+    print("Prioritat alta.")
+else:
+    print("Prioritat baixa.")
