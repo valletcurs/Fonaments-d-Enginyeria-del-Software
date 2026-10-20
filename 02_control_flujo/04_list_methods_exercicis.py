@@ -22,18 +22,35 @@ print(llista)
 # Elimina la primera aparició del nombre 1 de llista_a fent servir remove().
 # Elimina l'element de l'índex 3 de llista_a fent servir pop(). Imprimeix l'element eliminat.
 # Buida completament llista_b fent servir clear().
+llista_a = [1, 2, 3]
+llista_b = [4, 5, 6, 1, 2]
+llista_a.extend(llista_b)
+llista_a.remove(1)
+element_eliminat = llista_a.pop(3)
+print(element_eliminat)
+llista_b.clear()
+print(llista_a)
+print(llista_b)
 
 # Exercici 3: Slicing i eliminació amb del
 # Crea una llista amb els nombres de l'1 al 10.
 # Fes servir slicing i del per eliminar els elements des de l'índex 2 fins al 5
 # (sense incloure el 5).
 # Imprimeix la llista resultant.
+llista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+del llista[2:5]
+print(llista)
 
 # Exercici 4: Ordenar i comptar
 # Crea una llista amb els nombres següents: [5, 2, 8, 1, 9, 4, 2].
 # Ordena la llista de manera ascendent fent servir sort().
 # Compta quantes vegades apareix el nombre 2 a la llista fent servir count().
 # Comprova si el nombre 7 és a la llista fent servir in.
+llista = [5, 2, 8, 1, 9, 4, 2]
+llista.sort()
+print(llista)
+print(llista.count(2))
+print(7 in llista)
 
 # Exercici 5: Còpia i referència
 # Crea una llista anomenada original amb els nombres [1, 2, 3].
