@@ -74,3 +74,6 @@ print("Referència:", referencia)
 # Exercici 6: Ordenar cadenes sense distingir entre majúscules i minúscules
 # Crea una llista amb les cadenes següents: ["Poma", "pera", "PLÀTAN", "taronja"].
 # Ordena la llista sense distingir entre majúscules i minúscules.
+llista_cadenes = ["Poma", "pera", "PLÀTAN", "taronja"]
+llista_cadenes.sort(key=str.lower)
+print(llista_cadenes)
