@@ -49,11 +49,24 @@ while multiplicador <= 10:
   print(f"{numero} x {multiplicador} = {resultat}")
   multiplicador += 1
 
-
 # Exercici 6: Números primers fins a N
 # Demana a l'usuari que introdueixi un número enter positiu N.
 # Imprimeix tots els números primers menors o iguals que N fent servir un bucle while.
 # Un número és primer si només és divisible per 1 i per ell mateix.
+numero = int(input("Introdueix un número enter positiu: "))
+while numero < 2:
+    numero = int(input("Número massa petit. Torna a introduir-lo: "))
+while numero >= 2:
+    es_primer = True
+    divisor = 2
+    while divisor < numero:
+        if numero % divisor == 0:
+            es_primer = False
+            break
+        divisor += 1
+    if es_primer:
+        print(numero)
+    numero -= 1
 
 # Exercici 7: Suma fins al zero
 # Demana a l'usuari que introdueixi números enters.
