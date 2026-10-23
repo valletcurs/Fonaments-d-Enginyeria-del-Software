@@ -72,16 +72,37 @@ while numero >= 2:
 # Demana a l'usuari que introdueixi números enters.
 # Ves sumant els números introduïts fins que l'usuari introdueixi el 0.
 # Al final, imprimeix la suma total. El 0 només serveix per acabar i no s'ha de sumar.
+suma_total = 0
+numero = int(input("Introdueix un número enter: "))
+while numero != 0:
+    suma_total += numero
+    numero = int(input("Introdueix un número enter: "))
+print(f"La suma total és: {suma_total}")
 
 # Exercici 8: Comptar les xifres d'un número
 # Demana a l'usuari que introdueixi un número enter positiu.
 # Comptabilitza quantes xifres té fent servir un bucle while.
 # Finalment, imprimeix el nombre de xifres.
+numero = int(input("Introdueix un número enter positiu: "))
+while numero < 0:
+    numero = int(input("Número negatiu. Torna a introduir-lo: "))
+comptador = 0
+while numero > 0:
+    numero //= 10
+    comptador += 1
+print(f"El número té {comptador} xifres.")
 
 # Exercici 9: Seqüència de Fibonacci
 # Demana a l'usuari quants termes de la seqüència de Fibonacci vol veure.
 # Imprimeix aquest nombre de termes fent servir un bucle while.
 # La seqüència comença per 0 i 1; cada terme següent és la suma dels dos anteriors.
+terms = int(input("Quants termes de la seqüència de Fibonacci vols veure? "))
+a, b = 0, 1
+comptador = 0
+while comptador < terms:
+    print(a )
+    a, b = b, a + b
+    comptador += 1
 
 # Exercici 10: Joc d'endevinar el número
 # El número secret és el 7.
