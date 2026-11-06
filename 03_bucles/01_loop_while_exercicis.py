@@ -4,10 +4,10 @@
 
 # Exercici 1: Compte enrere
 # Imprimeix els números del 10 a l'1 fent servir un bucle while.
-numero = 1
-while numero <= 10:
+numero = 10
+while numero >= 1:
     print(numero)
-    numero += 1
+    numero -= 1
 # Exercici 2: Suma de números parells (while)
 # Calcula la suma dels números parells entre 1 i 20 (inclosos) fent servir un bucle while.
 suma = 0
@@ -100,7 +100,7 @@ terms = int(input("Quants termes de la seqüència de Fibonacci vols veure? "))
 a, b = 0, 1
 comptador = 0
 while comptador < terms:
-    print(a )
+    print(a, end=" ")
     a, b = b, a + b
     comptador += 1
 
@@ -109,3 +109,13 @@ while comptador < terms:
 # Demana a l'usuari que provi d'endevinar-lo i continua demanant números amb un bucle while
 # fins que l'encerti.
 # Després de cada intent incorrecte, indica si el número secret és més gran o més petit.
+secret = 7
+while True:
+    numero = int(input("Introdueix un número: "))
+    if numero == secret:
+        print("Felicitats! Has endevinat el número.")
+        break
+    elif numero < secret:
+        print("El número secret és més gran.")
+    else:
+        print("El número secret és més petit.")

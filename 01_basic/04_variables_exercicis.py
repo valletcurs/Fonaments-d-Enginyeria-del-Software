@@ -11,8 +11,7 @@ ubicacio_encaminador = "Sala de Servidors"
 nom_encaminador = "Router1"
 num_ports = 8
 esta_ences = True
-f_string = f"L'encaminador {nom_encaminador} està ubicat a {ubicacio_encaminador}, té {num_ports} ports i està encès: {esta_ences}."
-print(f_string)
+print(f"L'encaminador {nom_encaminador} està ubicat a {ubicacio_encaminador}, té {num_ports} ports i està encès: {esta_ences}.")
 
 # Exercici 2
 # Crea variables per desar els GB inclosos en un pla de dades mòbils
